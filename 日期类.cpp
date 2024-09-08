@@ -6,7 +6,7 @@ public:
 	int GetMonthDay(int year, int month)
 	{
 		static int monthDays[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-		//ÊÇ2ÔÂÇÒÊÇÈòÄê·µ»Ø29
+		//æ˜¯2æœˆä¸”æ˜¯é—°å¹´è¿”å›29
 		if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
 		{
 			return 29;
@@ -26,11 +26,11 @@ public:
 		}
 		else
 		{
-			cout << "·Ç·¨ÈÕÆÚ" << endl;
+			cout << "éæ³•æ—¥æœŸ" << endl;
 		}
 	}
 
-	Date(const Date& d)//¿½±´º¯Êı 
+	Date(const Date& d)//æ‹·è´å‡½æ•° 
 	{
 		_year = d._year;
 		_month = d._month;
@@ -72,11 +72,11 @@ public:
 
 	Date operator+(int day)
 	{
-		Date ret(*this);//ÓÃd1¿½±´Ò»¸öret
+		Date ret(*this);//ç”¨d1æ‹·è´ä¸€ä¸ªret
 		ret._day += day;
 		while (ret._day > GetMonthDay(ret._year, ret._month))
 		{
-			//Èç¹ûÈÕÆÚ²»ºÏ·¨£¬¾ÍÒª½øÎ»
+			//å¦‚æœæ—¥æœŸä¸åˆæ³•ï¼Œå°±è¦è¿›ä½
 			ret._day -= GetMonthDay(ret._year,ret._month);
 				ret._month++;
 				if (ret._month == 13)
